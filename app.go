@@ -40,21 +40,22 @@ func (a *App) ShowResult(numbers string) string {
 	return s
 }
 
-func (a *App) digitChecker(numbers string) bool {
-
-	sarr := strings.Split(numbers, "")
-	var array [12]int
-
-	for i, s := range sarr {
+func (a *App) convNumbers(numbers []string) [12]int {
+	var result [12]int
+	for i, s := range numbers {
 		element, err := strconv.Atoi(s)
 		if err != nil {
 			log.Fatal("Error occured while convert string to interger")
 		}
-		array[i] = element
+		result[i] = element
 	}
+	return result
 
+}
+
+func (a *App) checker(numbers [12]int) bool {
 	var sum int
-	forcheck := array[0:10]
+	forcheck := numbers[0:10]
 	checker := []int{5, 4, 3, 2, 7, 6, 5, 4, 3, 2}
 	for i, s := range forcheck {
 		sum += s * checker[i]
@@ -62,8 +63,15 @@ func (a *App) digitChecker(numbers string) bool {
 	m := sum % 11
 	c := 11 - m
 	b := false
-	if array[10] == c {
+	if numbers[10] == c {
 		b = true
 	}
+	return b
+}
+
+func (a *App) digitChecker(numbers string) bool {
+	sarr := strings.Split(numbers, "")
+	array := a.convNumbers(sarr)
+	b := a.checker(array)
 	return b
 }
