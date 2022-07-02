@@ -1,15 +1,7 @@
-# README
+## このアプリはなに？
+免許証番号が正しいかチェックするアプリです。
 
-## About
+## 使い方
+免許証番号を半角数字で入力して、「check」ボタンを押してください
+「OK」と表示されたら正しい免許証番号です。
 
-This is the official Wails React template.
-
-## Live Development
-
-To run in live development mode, run `wails dev` in the project directory. In another terminal, go into the `frontend`
-directory and run `npm run dev`. The frontend dev server will run on http://localhost:34115. Connect to this in your
-browser and connect to your application.
-
-## Building
-
-To build a redistributable, production mode package, use `wails build`.
